@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/provider/series.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -112,6 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            const Data(),
           ],
         ),
       ),
@@ -120,6 +127,25 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class Data extends ConsumerWidget {
+  const Data({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final data = ref.watch(dailyTimeSeriesProvider('AAPL'));
+
+    return data.when(
+      data: (data) => Column(
+          children: data.timeSeries.entries
+              .map((entry) => Text("${entry.key}: ${entry.value.close}"))
+              .take(10)
+              .toList()),
+      loading: () => const CircularProgressIndicator(),
+      error: (error, stackTrace) => Text('Error: $error'),
     );
   }
 }
