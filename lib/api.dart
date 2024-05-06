@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_project/model/series.dart';
+import 'package:meerkat/model/series.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'api.g.dart';

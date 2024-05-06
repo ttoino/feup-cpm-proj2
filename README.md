@@ -1,4 +1,4 @@
-# flutter_project
+# Meerkat
 
 A new Flutter project.
 

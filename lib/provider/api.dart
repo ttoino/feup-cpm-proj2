@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_project/api.dart';
+import 'package:meerkat/api.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'api.g.dart';

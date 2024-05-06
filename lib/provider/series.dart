@@ -1,6 +1,6 @@
-import 'package:flutter_project/env.dart';
-import 'package:flutter_project/model/series.dart';
-import 'package:flutter_project/provider/api.dart';
+import 'package:meerkat/env.dart';
+import 'package:meerkat/model/series.dart';
+import 'package:meerkat/provider/api.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'series.g.dart';
