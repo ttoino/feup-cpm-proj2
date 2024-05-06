@@ -2,8 +2,8 @@ import 'package:envied/envied.dart';
 
 part 'env.g.dart';
 
-@Envied(useConstantCase: true)
+@Envied(useConstantCase: true, requireEnvFile: true)
 abstract class Env {
-  @EnviedField(defaultValue: 'demo', obfuscate: true)
+  @EnviedField(obfuscate: true)
   static final String apiKey = _Env.apiKey;
 }
