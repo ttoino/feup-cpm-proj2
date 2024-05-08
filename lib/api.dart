@@ -12,7 +12,17 @@ abstract class AlphaVantageApi {
   Future<DailyTimeSeriesResponse> dailyTimeSeries({
     @Query('symbol') required String symbol,
     @Query('apikey') required String apiKey,
+    @Query('outputsize') String outputSize = 'full',
     @Query('function') String function = 'TIME_SERIES_DAILY',
+  });
+
+  @GET('')
+  Future<IntradayTimeSeriesResponse> intradayTimeSeries({
+    @Query('symbol') required String symbol,
+    @Query('apikey') required String apiKey,
+    @Query('interval') required String interval,
+    @Query('outputsize') String outputSize = 'full',
+    @Query('function') String function = 'TIME_SERIES_INTRADAY',
   });
 
   @GET('')

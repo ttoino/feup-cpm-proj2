@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:meerkat/provider/series.dart';
-import 'package:meerkat/series_chart.dart';
+import 'package:meerkat/screen/chart.dart';
 
 void main() {
   runApp(
@@ -37,22 +36,16 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Meerkat'),
       ),
-      body: const Data(),
-    );
-  }
-}
-
-class Data extends ConsumerWidget {
-  const Data({super.key});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final data = ref.watch(dailyTimeSeriesProvider('AAPL'));
-
-    return data.when(
-      data: (data) => SeriesChart(data.timeSeries),
-      loading: () => const CircularProgressIndicator(),
-      error: (error, stackTrace) => Text('Error: $error'),
+      body: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ChartScreen('AAPL'),
+              ),
+            );
+          },
+          child: const Text('Show Chart')),
     );
   }
 }

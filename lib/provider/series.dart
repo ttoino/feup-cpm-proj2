@@ -17,3 +17,18 @@ Future<DailyTimeSeriesResponse> dailyTimeSeries(
     symbol: symbol,
   );
 }
+
+@riverpod
+Future<IntradayTimeSeriesResponse> intradayTimeSeries(
+  IntradayTimeSeriesRef ref,
+  String symbol,
+  String interval,
+) async {
+  final api = ref.watch(apiProvider);
+
+  return await api.intradayTimeSeries(
+    apiKey: Env.apiKey,
+    symbol: symbol,
+    interval: interval,
+  );
+}

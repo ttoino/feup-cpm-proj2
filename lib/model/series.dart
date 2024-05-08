@@ -61,7 +61,7 @@ class IntradayTimeSeriesMetaData with _$IntradayTimeSeriesMetaData {
 @freezed
 class IntradayTimeSeriesResponse with _$IntradayTimeSeriesResponse {
   const factory IntradayTimeSeriesResponse({
-    @JsonKey(name: 'Meta Data') required DailyTimeSeriesMetaData metaData,
+    @JsonKey(name: 'Meta Data') required IntradayTimeSeriesMetaData metaData,
     @JsonKey(readValue: _readIntradayTimeSeries)
     required Map<DateTime, TimeSeries> timeSeries,
   }) = _IntradayTimeSeriesResponse;
