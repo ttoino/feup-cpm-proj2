@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meerkat/screen/chart.dart';
+import 'package:meerkat/screen/news.dart';
 
 void main() {
   runApp(
@@ -38,8 +39,12 @@ class MyHomePage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.newspaper),
             onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('This is a snackbar')));
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => NewsScreen(),
+                ),
+              );
             },
           ),
           IconButton(
@@ -241,10 +246,10 @@ class MySearchDelegate extends SearchDelegate {
     return [
       IconButton(
           onPressed: () {
-            if (query.isEmpty){
+            if (query.isEmpty) {
               close(context, null);
             } else {
-            query = '';
+              query = '';
             }
           },
           icon: const Icon(Icons.clear))
@@ -270,4 +275,3 @@ class MySearchDelegate extends SearchDelegate {
     return Container();
   }
 }
-
