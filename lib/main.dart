@@ -118,7 +118,7 @@ class MyHomePage extends StatelessWidget {
               urlImg:
                   'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png',
               companyName: 'Google',
-              companyShortName: 'GOOGLE',
+              companyShortName: 'GOOGL',
               companyStock: 100,
             ),
             createCompanyCard(
@@ -126,7 +126,7 @@ class MyHomePage extends StatelessWidget {
               urlImg:
                   'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/2500px-Amazon_icon.svg.png',
               companyName: 'Amazon',
-              companyShortName: 'AMAZON',
+              companyShortName: 'AMZN',
               companyStock: 150,
             ),
             createCompanyCard(
@@ -150,7 +150,7 @@ class MyHomePage extends StatelessWidget {
               urlImg:
                   'https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/527px-Nvidia_logo.svg.png?20150924223142',
               companyName: 'NVIDIA Corporation',
-              companyShortName: 'NVIDIA',
+              companyShortName: 'NVDA',
               companyStock: 3943,
             ),
             createCompanyCard(
@@ -158,7 +158,7 @@ class MyHomePage extends StatelessWidget {
               urlImg:
                   'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/814px-Apple_logo_black.svg.png',
               companyName: 'Apple',
-              companyShortName: 'APPL',
+              companyShortName: 'AAPL',
               companyStock: 0,
             ),
           ]),
@@ -241,10 +241,10 @@ class MySearchDelegate extends SearchDelegate {
     return [
       IconButton(
           onPressed: () {
-            if (query.isEmpty){
+            if (query.isEmpty) {
               close(context, null);
             } else {
-            query = '';
+              query = '';
             }
           },
           icon: const Icon(Icons.clear))
@@ -270,4 +270,3 @@ class MySearchDelegate extends SearchDelegate {
     return Container();
   }
 }
-
