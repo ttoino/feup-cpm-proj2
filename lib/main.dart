@@ -34,10 +34,8 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Meerkat'),
-      ),
-      body: /*ElevatedButton(
+        appBar: AppBar(title: const Text('Meerkat'),),
+        body: /*ElevatedButton(
           onPressed: () {
             Navigator.push(
               context,
@@ -47,99 +45,108 @@ class MyHomePage extends StatelessWidget {
             );
           },
           child: const Text('Show Chart'))*/
-          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Padding(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            children: [
-              SizedBox(width: 8),
-              // Add some space between the icon and the text
-              Text(
-                "Trending news",
+            Container(
+                child: SingleChildScrollView(
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                children: [
+                  SizedBox(width: 8),
+                  // Add some space between the icon and the text
+                  Text(
+                    "Trending news",
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(width: 8),
+                  Icon(
+                    Icons.trending_up,
+                    size: 35,
+                  ),
+                  // Add the house icon
+                ],
+              ),
+            ),
+            Container(
+              height: 256,
+              child: ListView(
+                padding: EdgeInsets.all(16),
+                scrollDirection: Axis.horizontal,
+                children: [
+                  buildNewsCard(
+                      newsItem: NewsItem(
+                          urlImage:
+                              "https://image.cnbcfm.com/api/v1/image/105446906-1536773767389gettyimages-1032224004.jpeg?v=1564565238",
+                          description:
+                              "Apple sells 96 iPhones for 4 cents and everyone gets crazy for it...")),
+                  SizedBox(width: 12),
+                  buildNewsCard(
+                      newsItem: NewsItem(
+                          urlImage:
+                              "https://i.insider.com/66328794ec0c696569ffcbfe?width=700",
+                          description:
+                              "NVIDIA involved in Drake and Kendrick fight over job position of workk after stopping diss rap battles and becoming homeless"))
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Text(
+                "Top 10 Stocks",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
-              SizedBox(width: 8),
-              Icon(
-                Icons.trending_up,
-                size: 35,
-              ),
-              // Add the house icon
-            ],
-          ),
-        ),
-        Container(
-          height: 256,
-          child: ListView(
-            padding: EdgeInsets.all(16),
-            scrollDirection: Axis.horizontal,
-            children: [
-              buildNewsCard(
-                  newsItem: NewsItem(
-                      urlImage:
-                          "https://image.cnbcfm.com/api/v1/image/105446906-1536773767389gettyimages-1032224004.jpeg?v=1564565238",
-                      description:
-                          "Apple sells 96 iPhones for 4 cents and everyone gets crazy for it...")),
-              SizedBox(width: 12),
-              buildNewsCard(
-                  newsItem: NewsItem(
-                      urlImage:
-                          "https://i.insider.com/66328794ec0c696569ffcbfe?width=700",
-                      description:
-                          "NVIDIA involved in Drake and Kendrick fight over job position of workk after stopping diss rap battles and becoming homeless"))
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(16),
-          child: Text(
-            "Top 10 Stocks",
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-          ),
-        ),
+            ),
             createCompanyCard(
               context: context,
-              urlImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png',
+              urlImg:
+                  'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png',
               companyName: 'Google',
               companyShortName: 'GOOGLE',
-              companyStock: '100',
+              companyStock: 100,
             ),
             createCompanyCard(
               context: context,
-              urlImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/2500px-Amazon_icon.svg.png',
+              urlImg:
+                  'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/2500px-Amazon_icon.svg.png',
               companyName: 'Amazon',
               companyShortName: 'AMAZON',
-              companyStock: '150',
+              companyStock: 150,
             ),
             createCompanyCard(
               context: context,
-              urlImg: 'https://zeevector.com/wp-content/uploads/Meta-icon-Logo-PNG-SVG-format.png',
+              urlImg:
+                  'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/meta-icon.png',
               companyName: 'Meta Platforms, Inc.',
               companyShortName: 'META',
-              companyStock: '233',
+              companyStock: 233,
             ),
             createCompanyCard(
               context: context,
-              urlImg: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAhFBMVEXz8/PzUyWBvAYFpvD/ugjz9fb19Pbz+fr39fr69vPy9foAofD/tgDzRQB9ugAAo/Df6dCv0Xjz2dPzTBfzl4PznImz04CAx/H60oHS5vJ5xPH60Hn16dIAnvDz7u3z4t7n7dzzNADzkXurz3BwtQDzvrLM36zf6/Os2PL336z07d/7z3RN8WfWAAABg0lEQVR4nO3cyVLCYBCFURwCkXlygDBFUBTf//3cSGIVf5WrDi7O9wJdp3p/Wy1JkvSrLLzqVDu8FHAzjW57JrZ34+hSH5yWg9jK187PrXx/GMZ2GF9+MZsObmKbzSvhZHgb25CQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCwUWE5i21QC/fB86Xp/dLt/DG4t/MGbf7+FNxkl9jZzTrR1TvCeXjJIWFJkv7uIbzqVDe8LAE8Lp+D+zgTu5/FS2zFKUFcrEex9ZaV8Ksf3Sol7N3FNqqFRf8+NkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQsJmhetebOtr75dmi+iO1anTKrrNJbDRsvCuDJQk6Z/1DSzvYqEfRCNJAAAAAElFTkSuQmCC',
+              urlImg:
+                  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAhFBMVEXz8/PzUyWBvAYFpvD/ugjz9fb19Pbz+fr39fr69vPy9foAofD/tgDzRQB9ugAAo/Df6dCv0Xjz2dPzTBfzl4PznImz04CAx/H60oHS5vJ5xPH60Hn16dIAnvDz7u3z4t7n7dzzNADzkXurz3BwtQDzvrLM36zf6/Os2PL336z07d/7z3RN8WfWAAABg0lEQVR4nO3cyVLCYBCFURwCkXlygDBFUBTf//3cSGIVf5WrDi7O9wJdp3p/Wy1JkvSrLLzqVDu8FHAzjW57JrZ34+hSH5yWg9jK187PrXx/GMZ2GF9+MZsObmKbzSvhZHgb25CQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCwUWE5i21QC/fB86Xp/dLt/DG4t/MGbf7+FNxkl9jZzTrR1TvCeXjJIWFJkv7uIbzqVDe8LAE8Lp+D+zgTu5/FS2zFKUFcrEex9ZaV8Ksf3Sol7N3FNqqFRf8+NkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQsJmhetebOtr75dmi+iO1anTKrrNJbDRsvCuDJQk6Z/1DSzvYqEfRCNJAAAAAElFTkSuQmCC',
               companyName: 'Microsoft',
               companyShortName: 'MSFT',
-              companyStock: '0',
+              companyStock: 0,
             ),
             createCompanyCard(
               context: context,
-              urlImg: 'https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/527px-Nvidia_logo.svg.png?20150924223142',
+              urlImg:
+                  'https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/527px-Nvidia_logo.svg.png?20150924223142',
               companyName: 'NVIDIA Corporation',
               companyShortName: 'NVIDIA',
-              companyStock: '3943',
+              companyStock: 3943,
             ),
             createCompanyCard(
               context: context,
-              urlImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/814px-Apple_logo_black.svg.png',
+              urlImg:
+                  'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/814px-Apple_logo_black.svg.png',
               companyName: 'Apple',
               companyShortName: 'APPL',
-              companyStock: '0',
+              companyStock: 0,
             ),
-      ]),
-    );
+          ]),
+        )));
   }
 }
 
@@ -173,13 +180,12 @@ Widget buildNewsCard({required NewsItem newsItem}) => Container(
       ],
     ));
 
-
 Widget createCompanyCard({
   required BuildContext context,
   required String urlImg,
   required String companyName,
   required String companyShortName,
-  required String companyStock,
+  required int companyStock,
 }) {
   return Card(
     child: ListTile(
@@ -190,13 +196,15 @@ Widget createCompanyCard({
       ),
       title: Text(companyName),
       subtitle: Text(companyShortName),
-      trailing: Wrap(
-      spacing: 12, // space between two trailings
-      children: <Widget>[
-        Text(companyStock),
-        const Icon(Icons.arrow_right),
-      ],
-    ),
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Text("$companyStock\$"),
+          const Icon(Icons.arrow_right),
+        ],
+      ),
       onTap: () {
         Navigator.push(
           context,
@@ -208,3 +216,4 @@ Widget createCompanyCard({
     ),
   );
 }
+
