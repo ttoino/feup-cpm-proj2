@@ -34,7 +34,24 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Meerkat'),),
+        appBar: AppBar(title: const Text('Meerkat'), actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.newspaper),
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('This is a snackbar')));
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: MySearchDelegate(),
+              );
+            },
+          ),
+        ]),
         body: /*ElevatedButton(
           onPressed: () {
             Navigator.push(
@@ -215,5 +232,43 @@ Widget createCompanyCard({
       },
     ),
   );
+}
+
+// ========= For Search ============
+
+class MySearchDelegate extends SearchDelegate {
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    return [
+      IconButton(
+          onPressed: () {
+            if (query.isEmpty){
+              close(context, null);
+            } else {
+            query = '';
+            }
+          },
+          icon: const Icon(Icons.clear))
+    ];
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+        onPressed: () => close(context, null),
+        icon: const Icon(Icons.arrow_back));
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    // TODO: implement buildResults
+    return Container();
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    // TODO: implement buildResults
+    return Container();
+  }
 }
 
