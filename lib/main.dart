@@ -62,8 +62,7 @@ class MyHomePage extends StatelessWidget {
             );
           },
           child: const Text('Show Chart'))*/
-            Container(
-                child: SingleChildScrollView(
+            SingleChildScrollView(
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Padding(
@@ -163,7 +162,7 @@ class MyHomePage extends StatelessWidget {
               companyStock: 0,
             ),
           ]),
-        )));
+        ));
   }
 }
 
