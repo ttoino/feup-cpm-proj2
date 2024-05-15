@@ -14,13 +14,25 @@ class NewsFullWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      // Add elevation and shape as per your preference
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      elevation: 4,
+      shadowColor: Colors.black,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.network(
-            imageUrl,
-            fit: BoxFit.cover, // Adjust the fit as per your requirement
+          SizedBox(
+            height: 200,
+            child:
+          ClipRRect(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(12),
+              topRight: Radius.circular(12),
+            ),
+            child: Image.network(
+              imageUrl,
+              fit: BoxFit.cover,
+            ),
+          ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -34,7 +46,7 @@ class NewsFullWidget extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 8.0), // Add some space between title and description
+                SizedBox(height: 8.0),
                 Text(
                   description,
                   style: TextStyle(

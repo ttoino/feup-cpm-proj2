@@ -21,9 +21,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Meerkat',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
+        primarySwatch: Colors.blue,
+        brightness: Brightness.light,
       ),
+      darkTheme: ThemeData(
+        primarySwatch: Colors.blue,
+        brightness: Brightness.dark,
+      ),
+      themeMode: ThemeMode.dark,
       home: const MyHomePage(),
     );
   }
