@@ -128,7 +128,7 @@ class MyHomePage extends StatelessWidget {
               urlImg:
                   'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png',
               companyName: 'Google',
-              companyShortName: 'GOOGLE',
+              companyShortName: 'GOOGL',
               companyStock: 100,
             ),
             createCompanyCard(
@@ -136,13 +136,13 @@ class MyHomePage extends StatelessWidget {
               urlImg:
                   'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/2500px-Amazon_icon.svg.png',
               companyName: 'Amazon',
-              companyShortName: 'AMAZON',
+              companyShortName: 'AMZN',
               companyStock: 150,
             ),
             createCompanyCard(
               context: context,
               urlImg:
-                  'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/meta-icon.png',
+              'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Meta_Platforms_Inc._logo_%28cropped%29.svg/640px-Meta_Platforms_Inc._logo_%28cropped%29.svg.png',
               companyName: 'Meta Platforms, Inc.',
               companyShortName: 'META',
               companyStock: 233,
@@ -160,7 +160,7 @@ class MyHomePage extends StatelessWidget {
               urlImg:
                   'https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/527px-Nvidia_logo.svg.png?20150924223142',
               companyName: 'NVIDIA Corporation',
-              companyShortName: 'NVIDIA',
+              companyShortName: 'NVDA',
               companyStock: 3943,
             ),
             createCompanyCard(
@@ -168,7 +168,7 @@ class MyHomePage extends StatelessWidget {
               urlImg:
                   'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/814px-Apple_logo_black.svg.png',
               companyName: 'Apple',
-              companyShortName: 'APPL',
+              companyShortName: 'AAPL',
               companyStock: 0,
             ),
           ]),
@@ -246,6 +246,15 @@ Widget createCompanyCard({
 // ========= For Search ============
 
 class MySearchDelegate extends SearchDelegate {
+  List<String> searchResults = [
+    "GOOGLE",
+    "AMAZON",
+    "META",
+    "MICROSOFT",
+    "NVIDIA",
+    "APPLE"
+  ];
+
   @override
   List<Widget>? buildActions(BuildContext context) {
     return [
@@ -270,13 +279,144 @@ class MySearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    // TODO: implement buildResults
-    return Container();
+    return Text(
+      query,
+      style: const TextStyle(fontSize: 64),
+    );
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    // TODO: implement buildResults
-    return Container();
+    List<RecommendedCompany> companies = [
+      RecommendedCompany(
+        urlImg:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png',
+        companyName: 'Google',
+        companyShortName: 'GOOGL',
+      ),
+      RecommendedCompany(
+        urlImg:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/2500px-Amazon_icon.svg.png',
+        companyName: 'Amazon',
+        companyShortName: 'AMZN',
+      ),
+      RecommendedCompany(
+        urlImg:
+            'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/meta-icon.png',
+        companyName: 'Meta',
+        companyShortName: 'META',
+      ),
+      RecommendedCompany(
+        urlImg:
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAhFBMVEXz8/PzUyWBvAYFpvD/ugjz9fb19Pbz+fr39fr69vPy9foAofD/tgDzRQB9ugAAo/Df6dCv0Xjz2dPzTBfzl4PznImz04CAx/H60oHS5vJ5xPH60Hn16dIAnvDz7u3z4t7n7dzzNADzkXurz3BwtQDzvrLM36zf6/Os2PL336z07d/7z3RN8WfWAAABg0lEQVR4nO3cyVLCYBCFURwCkXlygDBFUBTf//3cSGIVf5WrDi7O9wJdp3p/Wy1JkvSrLLzqVDu8FHAzjW57JrZ34+hSH5yWg9jK187PrXx/GMZ2GF9+MZsObmKbzSvhZHgb25CQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCwUWE5i21QC/fB86Xp/dLt/DG4t/MGbf7+FNxkl9jZzTrR1TvCeXjJIWFJkv7uIbzqVDe8LAE8Lp+D+zgTu5/FS2zFKUFcrEex9ZaV8Ksf3Sol7N3FNqqFRf8+NkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQsJmhetebOtr75dmi+iO1anTKrrNJbDRsvCuDJQk6Z/1DSzvYqEfRCNJAAAAAElFTkSuQmCC',
+        companyName: 'Microsoft',
+        companyShortName: 'MSFT',
+      ),
+      RecommendedCompany(
+        urlImg:
+            'https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/527px-Nvidia_logo.svg.png?20150924223142',
+        companyName: 'NVIDIA',
+        companyShortName: 'NVDA',
+      ),
+      RecommendedCompany(
+        urlImg:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/814px-Apple_logo_black.svg.png',
+        companyName: 'Apple',
+        companyShortName: 'AAPL',
+      )
+    ];
+
+    List<String> suggestions = searchResults.where((searchResult) {
+      final result = searchResult.toLowerCase();
+      final input = query.toLowerCase();
+
+      return result.contains(input);
+    }).toList();
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: ListView.builder(
+            itemCount: suggestions.length,
+            itemBuilder: (context, index) {
+              final suggestion = suggestions[index];
+
+              return ListTile(
+                title: Text(suggestion),
+                onTap: () {},
+              );
+            },
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: GridView.count(
+            primary: false,
+            padding: const EdgeInsets.all(20),
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            crossAxisCount: 4,
+            children: companies.map((company) {
+              return buildRecommendedCompanyCard(
+                context: context,
+                urlImg: company.urlImg,
+                companyShortName: company.companyName,
+              );
+            }).toList(),
+          ),
+        ),
+      ],
+    );
   }
+}
+
+class RecommendedCompany {
+  String urlImg;
+  String companyName;
+  String companyShortName;
+
+  RecommendedCompany({
+    required this.urlImg,
+    required this.companyName,
+    required this.companyShortName,
+  });
+}
+
+Widget buildRecommendedCompanyCard({
+  required BuildContext context,
+  required String urlImg,
+  required String companyShortName,
+}) {
+  // aspect ratio of the images
+  double aspectRatio = 4 / 3;
+
+  return GestureDetector(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ChartScreen(companyShortName),
+        ),
+      );
+    },
+    child: Column(
+        children: [
+          Expanded(
+            child: AspectRatio(
+              aspectRatio: aspectRatio,
+              child: ClipRRect(
+                child: Material(
+                  child: Ink.image(
+                    image: NetworkImage(urlImg),
+                    fit: BoxFit.contain, // Use BoxFit.contain to fit the image inside the box without stretching or cropping
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Text(companyShortName, style: TextStyle(fontSize: 15), overflow: TextOverflow.ellipsis)
+        ],
+      ),
+    );
 }
