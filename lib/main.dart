@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meerkat/screen/chart.dart';
 import 'package:meerkat/screen/news.dart';
@@ -20,13 +20,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Meerkat',
+      onGenerateTitle: (context) => AppLocalizations.of(context)!.title,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        brightness: Brightness.light,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
       ),
       darkTheme: ThemeData(
-        primarySwatch: Colors.blue,
-        brightness: Brightness.dark,
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.blue, brightness: Brightness.dark),
+        useMaterial3: true,
       ),
       themeMode: ThemeMode.dark,
       home: const MyHomePage(),
@@ -142,7 +146,7 @@ class MyHomePage extends StatelessWidget {
             createCompanyCard(
               context: context,
               urlImg:
-              'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Meta_Platforms_Inc._logo_%28cropped%29.svg/640px-Meta_Platforms_Inc._logo_%28cropped%29.svg.png',
+                  'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Meta_Platforms_Inc._logo_%28cropped%29.svg/640px-Meta_Platforms_Inc._logo_%28cropped%29.svg.png',
               companyName: 'Meta Platforms, Inc.',
               companyShortName: 'META',
               companyStock: 233,
@@ -189,17 +193,20 @@ Widget buildNewsCard({required NewsItem newsItem}) => Container(
     child: Column(
       children: [
         Expanded(
-            child: AspectRatio(
-                aspectRatio: 16 / 9,
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Material(
-                      child: Ink.image(
-                        image: NetworkImage(newsItem.urlImage),
-                        fit: BoxFit.cover,
-                        child: InkWell(onTap: () => {}),
-                      ),
-                    )))),
+          child: AspectRatio(
+            aspectRatio: 16 / 9,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Material(
+                child: Ink.image(
+                  image: NetworkImage(newsItem.urlImage),
+                  fit: BoxFit.cover,
+                  child: InkWell(onTap: () => {}),
+                ),
+              ),
+            ),
+          ),
+        ),
         const SizedBox(height: 4),
         Text(newsItem.description,
             style: TextStyle(fontSize: 20), overflow: TextOverflow.ellipsis)
@@ -401,22 +408,24 @@ Widget buildRecommendedCompanyCard({
       );
     },
     child: Column(
-        children: [
-          Expanded(
-            child: AspectRatio(
-              aspectRatio: aspectRatio,
-              child: ClipRRect(
-                child: Material(
-                  child: Ink.image(
-                    image: NetworkImage(urlImg),
-                    fit: BoxFit.contain, // Use BoxFit.contain to fit the image inside the box without stretching or cropping
-                  ),
+      children: [
+        Expanded(
+          child: AspectRatio(
+            aspectRatio: aspectRatio,
+            child: ClipRRect(
+              child: Material(
+                child: Ink.image(
+                  image: NetworkImage(urlImg),
+                  fit: BoxFit
+                      .contain, // Use BoxFit.contain to fit the image inside the box without stretching or cropping
                 ),
               ),
             ),
           ),
-          Text(companyShortName, style: TextStyle(fontSize: 15), overflow: TextOverflow.ellipsis)
-        ],
-      ),
-    );
+        ),
+        Text(companyShortName,
+            style: TextStyle(fontSize: 15), overflow: TextOverflow.ellipsis)
+      ],
+    ),
+  );
 }

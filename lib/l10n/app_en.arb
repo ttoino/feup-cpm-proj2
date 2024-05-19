@@ -1,0 +1,127 @@
+{
+  "title": "Meerkat",
+  "@title": {
+    "description": "The app's title",
+    "translatable": false
+  },
+  "showChartAction": "Show chart",
+
+  "chartDetail": "{date} {time}\nOpen: {price}\nClose: {close}\nHigh: {high}\nLow: {low}\nVolume: {volume}",
+  "@chartDetail": {
+    "description": "The chart description when showing a detailed view",
+    "placeholders": {
+      "date": {
+        "description": "The date",
+        "type": "DateTime",
+        "format": "yMMMd"
+      },
+      "time": {
+        "description": "The time",
+        "type": "DateTime",
+        "format": "Hms"
+      },
+      "price": {
+        "description": "The price",
+        "type": "double",
+        "format": "compactCurrency"
+      },
+      "close": {
+        "description": "The close price",
+        "type": "double",
+        "format": "compactCurrency"
+      },
+      "high": {
+        "description": "The high price",
+        "type": "double",
+        "format": "compactCurrency"
+      },
+      "low": {
+        "description": "The low price",
+        "type": "double",
+        "format": "compactCurrency"
+      },
+      "volume": {
+        "description": "The volume",
+        "type": "int",
+        "format": "compact"
+      }
+    }
+  },
+  "chartDateDay": "{date}",
+  "@chartDateDay": {
+    "description": "The chart date format for a single day",
+    "placeholders": {
+      "date": {
+        "description": "The date",
+        "type": "DateTime",
+        "format": "j"
+      }
+    }
+  },
+  "chartDateWeek": "{date}",
+  "@chartDateWeek": {
+    "description": "The chart date format for the last week",
+    "placeholders": {
+      "date": {
+        "description": "The date",
+        "type": "DateTime",
+        "format": "E"
+      }
+    }
+  },
+  "chartDateMonth": "{date}",
+  "@chartDateMonth": {
+    "description": "The chart date format for the last month",
+    "placeholders": {
+      "date": {
+        "description": "The date",
+        "type": "DateTime",
+        "format": "d"
+      }
+    }
+  },
+  "chartDateSixMonth": "{date}",
+  "@chartDateSixMonth": {
+    "description": "The chart date format for the last six months",
+    "placeholders": {
+      "date": {
+        "description": "The date",
+        "type": "DateTime",
+        "format": "MMM"
+      }
+    }
+  },
+  "chartDateYear": "{date}",
+  "@chartDateYear": {
+    "description": "The chart date format for the last year",
+    "placeholders": {
+      "date": {
+        "description": "The date",
+        "type": "DateTime",
+        "format": "MMM"
+      }
+    }
+  },
+  "chartDateFiveYear": "{date}",
+  "@chartDateFiveYear": {
+    "description": "The chart date format for the last five years",
+    "placeholders": {
+      "date": {
+        "description": "The date",
+        "type": "DateTime",
+        "format": "y"
+      }
+    }
+  },
+  "chartDateAll": "{date}",
+  "@chartDateAll": {
+    "description": "The chart date format for all time",
+    "placeholders": {
+      "date": {
+        "description": "The date",
+        "type": "DateTime",
+        "format": "y"
+      }
+    }
+  }
+}

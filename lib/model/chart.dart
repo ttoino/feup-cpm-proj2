@@ -30,6 +30,7 @@ class ChartState with _$ChartState {
 class ChartData with _$ChartData {
   const factory ChartData({
     required ChartType type,
+    required ChartInterval interval,
     required Map<DateTime, TimeSeries> series,
   }) = _ChartData;
 }

@@ -1,0 +1,13 @@
+{
+  "showChartAction": "Mostrar gráfico",
+
+  "chartDateDay": "{date}",
+  "@chartDateDay":  {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "Hm"
+      }
+    }
+  }
+}

@@ -58,6 +58,7 @@ Future<ChartData> chartData(
 
   return ChartData(
     type: state.type,
+    interval: state.interval,
     series: Map.fromEntries(
       series.whereNot((e) => e.key.isBefore(earliest)),
     ),
