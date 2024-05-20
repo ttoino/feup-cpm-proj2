@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:meerkat/model/news.dart';
 import 'package:meerkat/model/series.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -30,5 +31,11 @@ abstract class AlphaVantageApi {
     @Query('keywords') required String keywords,
     @Query('apikey') required String apiKey,
     @Query('function') String function = 'SYMBOL_SEARCH',
+  });
+
+  @GET('')
+  Future<NewsSentimentResponse> newsSentiment({
+    @Query('apikey') required String apiKey,
+    @Query('function') String function = 'NEWS_SENTIMENT',
   });
 }

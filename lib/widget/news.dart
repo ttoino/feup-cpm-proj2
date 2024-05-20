@@ -1,4 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:meerkat/model/news.dart';
+
+class NewsCard extends StatelessWidget {
+  final News news;
+
+  const NewsCard(this.news, {super.key});
+
+  @override
+  Widget build(BuildContext context) => SizedBox(
+        width: 256,
+        child: Card.filled(
+          clipBehavior: Clip.antiAlias,
+          child: InkWell(
+            onTap: () {},
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AspectRatio(
+                  aspectRatio: 16 / 9,
+                  child: Ink.image(
+                    image: NetworkImage(
+                        news.bannerImage ?? 'https://picsum.photos/256/144'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        news.title,
+                        overflow: TextOverflow.ellipsis,
+                        style:
+                            Theme.of(context).typography.englishLike.bodyLarge,
+                      ),
+                      Text(
+                        news.source,
+                        style: Theme.of(context)
+                            .typography
+                            .englishLike
+                            .bodyMedium
+                            ?.copyWith(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .onSurfaceVariant),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+}
 
 class NewsFullWidget extends StatelessWidget {
   final String imageUrl;
@@ -22,17 +78,16 @@ class NewsFullWidget extends StatelessWidget {
         children: [
           SizedBox(
             height: 200,
-            child:
-          ClipRRect(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(12),
-              topRight: Radius.circular(12),
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(12),
+                topRight: Radius.circular(12),
+              ),
+              child: Image.network(
+                imageUrl,
+                fit: BoxFit.cover,
+              ),
             ),
-            child: Image.network(
-              imageUrl,
-              fit: BoxFit.cover,
-            ),
-          ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
