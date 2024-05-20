@@ -215,13 +215,12 @@ class Chart extends StatelessWidget {
     final borderData =
         FlBorderData(border: Border(left: borderSide, bottom: borderSide));
 
-    return Expanded(
-        child: switch (data.type) {
+    return switch (data.type) {
       ChartType.candle =>
         _buildCandleChart(context, l10n, titlesData, gridData, borderData),
       ChartType.mountain =>
         _buildMountainChart(context, l10n, titlesData, gridData, borderData),
-    });
+    };
   }
 }
 
@@ -237,7 +236,7 @@ class ConsumerChart extends ConsumerWidget {
     return data.map(
       data: (data) => Chart(data.value),
       error: (error) => Text(error.error.toString()),
-      loading: (_) => const Expanded(child: CircularProgressIndicator()),
+      loading: (_) => const Center(child: CircularProgressIndicator()),
     );
   }
 }

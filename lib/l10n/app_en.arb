@@ -6,6 +6,71 @@
   },
   "showChartAction": "Show chart",
 
+  "decimal": "{number}",
+  "@decimal": {
+    "description": "A decimal number",
+    "placeholders": {
+      "number": {
+        "description": "The number",
+        "type": "double",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 2
+        }
+      }
+    }
+  },
+  "price": "{price}",
+  "@price": {
+    "description": "A price",
+    "placeholders": {
+      "price": {
+        "description": "The price",
+        "type": "double",
+        "format": "simpleCurrency",
+        "optionalParameters": {
+          "decimalDigits": 2
+        }
+      }
+    }
+  },
+  "amount": "{amount}",
+  "@amount": {
+    "description": "An amount",
+    "placeholders": {
+      "amount": {
+        "description": "The amount",
+        "type": "int",
+        "format": "compact"
+      }
+    }
+  },
+  "percentage": "{percentage}",
+  "@percentage": {
+    "description": "A percentage",
+    "placeholders": {
+    "percentage": {
+        "description": "The percentage",
+        "type": "double",
+        "format": "decimalPercentPattern",
+        "optionalParameters": {
+          "decimalDigits": 2
+        }
+      }
+    }
+  },
+  "date": "{date}",
+  "@date": {
+    "description": "A date",
+    "placeholders": {
+      "date": {
+        "description": "The date",
+        "type": "DateTime",
+        "format": "yMMMd"
+      }
+    }
+  },
+
   "chartDetail": "{date} {time}\nOpen: {price}\nClose: {close}\nHigh: {high}\nLow: {low}\nVolume: {volume}",
   "@chartDetail": {
     "description": "The chart description when showing a detailed view",
@@ -23,22 +88,34 @@
       "price": {
         "description": "The price",
         "type": "double",
-        "format": "compactCurrency"
+        "format": "simpleCurrency",
+        "optionalParameters": {
+          "decimalDigits": 2
+        }
       },
       "close": {
         "description": "The close price",
         "type": "double",
-        "format": "compactCurrency"
+        "format": "simpleCurrency",
+        "optionalParameters": {
+          "decimalDigits": 2
+        }
       },
       "high": {
         "description": "The high price",
         "type": "double",
-        "format": "compactCurrency"
+        "format": "simpleCurrency",
+        "optionalParameters": {
+          "decimalDigits": 2
+        }
       },
       "low": {
         "description": "The low price",
         "type": "double",
-        "format": "compactCurrency"
+        "format": "simpleCurrency",
+        "optionalParameters": {
+          "decimalDigits": 2
+        }
       },
       "volume": {
         "description": "The volume",

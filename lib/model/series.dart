@@ -1,3 +1,4 @@
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'series.freezed.dart';
@@ -35,8 +36,8 @@ class DailyTimeSeriesMetaData with _$DailyTimeSeriesMetaData {
 class DailyTimeSeriesResponse with _$DailyTimeSeriesResponse {
   const factory DailyTimeSeriesResponse({
     @JsonKey(name: 'Meta Data') required DailyTimeSeriesMetaData metaData,
-    @JsonKey(name: 'Time Series (Daily)')
-    required Map<DateTime, TimeSeries> timeSeries,
+    @JsonKey(name: 'Time Series (Daily)', fromJson: _timeSeriesFromJson)
+    required IMap<DateTime, TimeSeries> timeSeries,
   }) = _DailyTimeSeriesResponse;
 
   factory DailyTimeSeriesResponse.fromJson(Map<String, dynamic> json) =>
@@ -62,8 +63,8 @@ class IntradayTimeSeriesMetaData with _$IntradayTimeSeriesMetaData {
 class IntradayTimeSeriesResponse with _$IntradayTimeSeriesResponse {
   const factory IntradayTimeSeriesResponse({
     @JsonKey(name: 'Meta Data') required IntradayTimeSeriesMetaData metaData,
-    @JsonKey(readValue: _readIntradayTimeSeries)
-    required Map<DateTime, TimeSeries> timeSeries,
+    @JsonKey(readValue: _readIntradayTimeSeries, fromJson: _timeSeriesFromJson)
+    required IMap<DateTime, TimeSeries> timeSeries,
   }) = _IntradayTimeSeriesResponse;
 
   factory IntradayTimeSeriesResponse.fromJson(Map<String, dynamic> json) =>
@@ -75,3 +76,7 @@ dynamic _readIntradayTimeSeries(Map<dynamic, dynamic> json, String name) =>
         .firstWhere((element) =>
             element.key is String && element.key.startsWith('Time Series'))
         .value;
+
+IMap<DateTime, TimeSeries> _timeSeriesFromJson(Map<String, dynamic> json) =>
+    IMap.fromJson(json, (v) => v as DateTime,
+        (value) => TimeSeries.fromJson(value as Map<String, dynamic>));

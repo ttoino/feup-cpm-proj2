@@ -1,3 +1,4 @@
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'news.freezed.dart';
@@ -9,12 +10,12 @@ class News with _$News {
     required String title,
     required String url,
     @JsonKey(name: 'time_published') required DateTime timePublished,
-    required List<String> authors,
+    required IList<String> authors,
     required String summary,
     @JsonKey(name: 'banner_image') String? bannerImage,
     required String source,
     @JsonKey(name: 'ticker_sentiment')
-    required List<TickerSentiment> tickerSentiment,
+    required IList<TickerSentiment> tickerSentiment,
   }) = _News;
 
   factory News.fromJson(Map<String, dynamic> json) => _$NewsFromJson(json);
@@ -40,7 +41,7 @@ class TickerSentiment with _$TickerSentiment {
 class NewsSentimentResponse with _$NewsSentimentResponse {
   const factory NewsSentimentResponse({
     @JsonKey(fromJson: int.parse) required int items,
-    required List<News> feed,
+    required IList<News> feed,
   }) = _NewsSentimentResponse;
 
   factory NewsSentimentResponse.fromJson(Map<String, dynamic> json) =>

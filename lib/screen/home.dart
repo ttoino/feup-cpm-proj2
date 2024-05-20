@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meerkat/provider/company.dart';
-import 'package:meerkat/provider/news.dart';
 import 'package:meerkat/screen/news.dart';
 import 'package:meerkat/screen/search.dart';
 import 'package:meerkat/widget/company.dart';
-import 'package:meerkat/widget/news.dart';
+import 'package:meerkat/widget/news_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -44,28 +43,28 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Row(
               children: [
+                Text(
+                  "Trending news",
+                  style: Theme.of(context).typography.englishLike.titleLarge,
+                ),
+                const SizedBox(width: 8),
                 Icon(
                   Icons.trending_up,
                   size: Theme.of(context)
                       .typography
                       .englishLike
-                      .headlineLarge
+                      .titleLarge
                       ?.fontSize,
-                ),
-                const SizedBox(width: 8),
-                Text(
-                  "Trending news",
-                  style: Theme.of(context).typography.englishLike.headlineLarge,
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 223.5, child: _NewsList()),
+          const RecommendedNewsList(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Text(
               "Top stocks",
-              style: Theme.of(context).typography.englishLike.headlineLarge,
+              style: Theme.of(context).typography.englishLike.titleLarge,
             ),
           ),
           const _CompanyList(),
@@ -77,7 +76,7 @@ class HomeScreen extends StatelessWidget {
 }
 
 class _CompanyList extends ConsumerWidget {
-  const _CompanyList({super.key});
+  const _CompanyList();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -97,43 +96,6 @@ class _CompanyList extends ConsumerWidget {
       },
       separatorBuilder: (BuildContext context, int index) =>
           const Divider(height: 2),
-    );
-  }
-}
-
-class _NewsList extends ConsumerWidget {
-  const _NewsList({super.key});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final news = ref.watch(newsProvider);
-
-    return news.map(
-      data: (data) => ListView.separated(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        scrollDirection: Axis.horizontal,
-        itemCount: data.value.items + 1,
-        itemBuilder: (context, index) {
-          if (index >= data.value.items) {
-            return Center(
-              child: TextButton(
-                onPressed: () {},
-                child: const Text("See more"),
-              ),
-            );
-          }
-
-          final newsItem = data.value.feed[index];
-          return NewsCard(
-            newsItem,
-            key: Key(newsItem.title),
-          );
-        },
-        separatorBuilder: (BuildContext context, int index) =>
-            const SizedBox(width: 8),
-      ),
-      error: (error) => Text(error.error.toString()),
-      loading: (_) => const Center(child: CircularProgressIndicator()),
     );
   }
 }

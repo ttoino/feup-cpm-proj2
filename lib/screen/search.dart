@@ -116,7 +116,7 @@ class MeerkatSearchDelegate extends SearchDelegate {
 class _SearchResults extends ConsumerWidget {
   final String query;
 
-  const _SearchResults(this.query, {super.key});
+  const _SearchResults(this.query);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

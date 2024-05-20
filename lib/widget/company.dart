@@ -10,8 +10,8 @@ class CompanyItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Image.network(
-        company.logoUrl,
+      leading: Ink.image(
+        image: NetworkImage(company.logoUrl),
         fit: BoxFit.contain,
         width: 56,
         height: 56,

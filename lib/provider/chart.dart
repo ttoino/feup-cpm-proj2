@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:meerkat/model/chart.dart';
 import 'package:meerkat/provider/series.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -59,7 +60,7 @@ Future<ChartData> chartData(
   return ChartData(
     type: state.type,
     interval: state.interval,
-    series: Map.fromEntries(
+    series: IMap.fromEntries(
       series.whereNot((e) => e.key.isBefore(earliest)),
     ),
   );

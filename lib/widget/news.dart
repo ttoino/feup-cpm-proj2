@@ -61,7 +61,7 @@ class NewsFullWidget extends StatelessWidget {
   final String title;
   final String description;
 
-  NewsFullWidget({
+  const NewsFullWidget({super.key, 
     required this.imageUrl,
     required this.title,
     required this.description,
@@ -79,7 +79,7 @@ class NewsFullWidget extends StatelessWidget {
           SizedBox(
             height: 200,
             child: ClipRRect(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(12),
                 topRight: Radius.circular(12),
               ),
@@ -96,15 +96,15 @@ class NewsFullWidget extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 Text(
                   description,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16.0,
                   ),
                 ),
