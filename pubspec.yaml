@@ -50,7 +50,7 @@ dependencies:
 
 dependency_overrides:
   fl_chart:
-    path: ../fl_chart
+    git: https://github.com/ttoino/fl_chart.git
 
 dev_dependencies:
   flutter_test:
