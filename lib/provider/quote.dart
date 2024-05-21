@@ -10,11 +10,10 @@ Future<Quote> quote(
   QuoteRef ref,
   String symbol,
 ) async {
-  final api = ref.watch(apiProvider);
+  final api = ref.watch(twelveDataProvider);
 
-  return (await api.globalQuote(
-    apiKey: Env.apiKey,
+  return await api.quote(
+    apiKey: Env.twelveDataKey,
     symbol: symbol,
-  ))
-      .globalQuote;
+  );
 }

@@ -30,22 +30,18 @@ Future<ChartData> chartData(
 ) async {
   final state = ref.watch(chartProvider);
 
-  var series = switch (state.interval) {
-    ChartInterval.day =>
-      (await ref.watch(intradayTimeSeriesProvider(symbol, '1min').future))
-          .timeSeries,
-    ChartInterval.week =>
-      (await ref.watch(intradayTimeSeriesProvider(symbol, '15min').future))
-          .timeSeries,
-    ChartInterval.month =>
-      (await ref.watch(intradayTimeSeriesProvider(symbol, '60min').future))
-          .timeSeries,
-    _ => (await ref.watch(dailyTimeSeriesProvider(symbol).future)).timeSeries,
-  }
-      .entries
-      .sortedBy((element) => element.key);
+  final interval = switch (state.interval) {
+    ChartInterval.day => '1min',
+    ChartInterval.week => '15min',
+    ChartInterval.month => '60min',
+    _ => '1day',
+  };
 
-  final today = series.last.key
+  final series = (await ref.watch(timeSeriesProvider(symbol, interval).future))
+      .values
+      .sortedBy((element) => element.datetime);
+
+  final today = series.last.datetime
       .copyWith(hour: 0, minute: 0, second: 0, millisecond: 0, microsecond: 0);
   final earliest = switch (state.interval) {
     ChartInterval.day => today,
@@ -60,8 +56,9 @@ Future<ChartData> chartData(
   return ChartData(
     type: state.type,
     interval: state.interval,
-    series: IMap.fromEntries(
-      series.whereNot((e) => e.key.isBefore(earliest)),
+    series: IMap.fromValues(
+      keyMapper: (e) => e.datetime,
+      values: series.whereNot((e) => e.datetime.isBefore(earliest)),
     ),
   );
 }

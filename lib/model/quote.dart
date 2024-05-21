@@ -6,32 +6,47 @@ part 'quote.g.dart';
 @freezed
 class Quote with _$Quote {
   const factory Quote({
-    @JsonKey(name: '01. symbol') required String symbol,
-    @JsonKey(name: '02. open', fromJson: double.parse) required double open,
-    @JsonKey(name: '03. high', fromJson: double.parse) required double high,
-    @JsonKey(name: '04. low', fromJson: double.parse) required double low,
-    @JsonKey(name: '05. price', fromJson: double.parse) required double price,
-    @JsonKey(name: '06. volume', fromJson: int.parse) required int volume,
-    @JsonKey(name: '07. latest trading day', fromJson: DateTime.parse)
-    required DateTime latestTradingDay,
-    @JsonKey(name: '08. previous close', fromJson: double.parse)
+    required String symbol,
+    required String name,
+    required String exchange,
+    @JsonKey(name: 'mic_code') required String micCode,
+    required String currency,
+    required DateTime datetime,
+    required int timestamp,
+    @JsonKey(fromJson: double.parse) required double open,
+    @JsonKey(fromJson: double.parse) required double high,
+    @JsonKey(fromJson: double.parse) required double low,
+    @JsonKey(fromJson: double.parse) required double close,
+    @JsonKey(fromJson: int.parse) required int volume,
+    @JsonKey(name: 'previous_close', fromJson: double.parse)
     required double previousClose,
-    @JsonKey(name: '09. change', fromJson: double.parse) required double change,
-    @JsonKey(name: '10. change percent', fromJson: _parsePercentage)
-    required double changePercent,
+    @JsonKey(fromJson: double.parse) required double change,
+    @JsonKey(name: 'percent_change', fromJson: double.parse)
+    required double percentChange,
+    @JsonKey(name: 'average_volume', fromJson: int.parse)
+    required int averageVolume,
+    @JsonKey(name: 'is_market_open') required bool isMarketOpen,
+    @JsonKey(name: 'fifty_two_week') required FiftyTwoWeek fiftyTwoWeek,
   }) = _Quote;
 
   factory Quote.fromJson(Map<String, dynamic> json) => _$QuoteFromJson(json);
 }
 
 @freezed
-class GlobalQuoteResponse with _$GlobalQuoteResponse {
-  const factory GlobalQuoteResponse({
-    @JsonKey(name: 'Global Quote') required Quote globalQuote,
-  }) = _GlobalQuoteResponse;
+class FiftyTwoWeek with _$FiftyTwoWeek {
+  const factory FiftyTwoWeek({
+    @JsonKey(fromJson: double.parse) required double low,
+    @JsonKey(fromJson: double.parse) required double high,
+    @JsonKey(name: 'low_change', fromJson: double.parse)
+    required double lowChange,
+    @JsonKey(name: 'high_change', fromJson: double.parse)
+    required double highChange,
+    @JsonKey(name: 'low_change_percent', fromJson: double.parse)
+    required double lowChangePercent,
+    @JsonKey(name: 'high_change_percent', fromJson: double.parse)
+    required double highChangePercent,
+  }) = _FiftyTwoWeek;
 
-  factory GlobalQuoteResponse.fromJson(Map<String, dynamic> json) =>
-      _$GlobalQuoteResponseFromJson(json);
+  factory FiftyTwoWeek.fromJson(Map<String, dynamic> json) =>
+      _$FiftyTwoWeekFromJson(json);
 }
-
-double _parsePercentage(String s) => double.parse(s.replaceAll('%', ''));

@@ -12,10 +12,10 @@ Future<NewsSentimentResponse> news(
   IList<String> topics = const IList.empty(),
   IList<String> tickers = const IList.empty(),
 }) async {
-  final api = ref.watch(apiProvider);
+  final api = ref.watch(alphaVantageProvider);
 
   return await api.newsSentiment(
-    apiKey: Env.apiKey,
+    apiKey: Env.alphaVantageKey,
     topics: topics.join(','),
     tickers: tickers.join(','),
   );

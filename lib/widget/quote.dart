@@ -34,7 +34,7 @@ class QuoteInfo extends ConsumerWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  l10n.price(quote.price),
+                  l10n.price(quote.close),
                   style: typography.displayMedium,
                 ),
                 Icon(
@@ -51,7 +51,7 @@ class QuoteInfo extends ConsumerWidget {
                       style: changeStyle,
                     ),
                     Text(
-                      l10n.percentage(quote.changePercent),
+                      l10n.percentage(quote.percentChange),
                       style: changeStyle,
                     ),
                   ],
@@ -62,8 +62,9 @@ class QuoteInfo extends ConsumerWidget {
             _Row("Open", l10n.price(quote.open)),
             _Row("High", l10n.price(quote.high)),
             _Row("Low", l10n.price(quote.low)),
+            _Row("Close", l10n.price(quote.close)),
             _Row("Volume", l10n.amount(quote.volume)),
-            _Row("Latest trading day", l10n.date(quote.latestTradingDay)),
+            _Row("Date", l10n.date(quote.datetime)),
             _Row("Previous close", l10n.price(quote.previousClose)),
           ],
         );
