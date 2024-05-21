@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meerkat/widget/news.dart';
+import 'package:meerkat/widget/news_list.dart';
 
 class NewsScreen extends StatelessWidget {
   const NewsScreen({super.key});
@@ -13,12 +14,8 @@ class NewsScreen extends StatelessWidget {
       body: const Center(
         child: Padding(
           padding: EdgeInsets.all(16),
-          child: NewsFullWidget(
-            imageUrl:
-                'https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-            title: 'Title',
-            description: 'Description',
-          ),
+          child: RecommendedNewsList(orientationVertical: true,),
+
         ),
       ),
     );

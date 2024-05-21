@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meerkat/model/news.dart';
+import 'package:url_launcher/url_launcher_string.dart';
+
 
 class NewsCard extends StatelessWidget {
   final News news;
@@ -12,7 +14,7 @@ class NewsCard extends StatelessWidget {
         child: Card.filled(
           clipBehavior: Clip.antiAlias,
           child: InkWell(
-            onTap: () {},
+            onTap: () {launchUrlString(news.url);},
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

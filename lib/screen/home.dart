@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          const RecommendedNewsList(),
+          const RecommendedNewsList(limit: 3),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Text(
