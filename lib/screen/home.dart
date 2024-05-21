@@ -6,6 +6,7 @@ import 'package:meerkat/screen/news.dart';
 import 'package:meerkat/screen/search.dart';
 import 'package:meerkat/widget/company.dart';
 import 'package:meerkat/widget/news_list.dart';
+import 'package:meerkat/screen/compare.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -18,6 +19,15 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(l10n.title),
         actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.compare_arrows),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const CompareScreen(),
+              ),
+            ),
+          ),
           IconButton(
             icon: const Icon(Icons.newspaper),
             onPressed: () => Navigator.push(
