@@ -13,6 +13,7 @@ class RecommendedNewsList extends ConsumerWidget {
   final int? limit;
   final bool orientationVertical;
 
+
   const RecommendedNewsList({
     this.topics = const IList.empty(),
     this.tickers = const IList.empty(),
@@ -36,7 +37,7 @@ class RecommendedNewsList extends ConsumerWidget {
               padding:
                 orientationVertical? const EdgeInsets.symmetric(horizontal: 0, vertical: 16): const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               scrollDirection: orientationVertical ? Axis.vertical : Axis.horizontal,
-              itemCount: count + 1,
+              itemCount: orientationVertical ? count : count + 1,
               itemBuilder: (context, index) {
                 if (index >= count) {
                   return Center(
