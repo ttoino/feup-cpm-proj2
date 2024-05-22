@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:meerkat/model/company.dart';
 import 'package:meerkat/screen/compareCharts.dart';
+import 'package:meerkat/provider/company.dart';
 
-class CompareScreen extends StatefulWidget {
+class CompareScreen extends ConsumerStatefulWidget {
   const CompareScreen({Key? key}) : super(key: key);
 
   @override
   _CompareScreenState createState() => _CompareScreenState();
 }
 
-class _CompareScreenState extends State<CompareScreen> {
-  List<bool> isSelected = List.filled(8, false);
+class _CompareScreenState extends ConsumerState<CompareScreen> {
+  List<bool> isSelected = List.filled(10, false);
   int selectedCount = 0;
-  List<int> selectedIndices = [];
+  List<Company> selectedCompanies = [];
 
   @override
   Widget build(BuildContext context) {
+    final companies = ref.watch(companiesProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Compare Companies"),
@@ -22,28 +27,32 @@ class _CompareScreenState extends State<CompareScreen> {
       body: Stack(
         children: [
           GridView.builder(
-            itemCount: 8,
+            itemCount: companies.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
             ),
             itemBuilder: (context, index) {
+              final company = companies[index];
               return InkWell(
                 onTap: () {
                   setState(() {
                     if (isSelected[index]) {
                       isSelected[index] = false;
                       selectedCount--;
+                      selectedCompanies.remove(company);
                     } else {
                       if (selectedCount < 2) {
                         isSelected[index] = true;
                         selectedCount++;
+                        selectedCompanies.add(company);
                       } else {
                         // Show SnackBar indicating maximum selection reached
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
-                            content: Text("Can't compare more than two companies"),
+                            content:
+                                Text("Can't compare more than two companies"),
                           ),
                         );
                       }
@@ -53,8 +62,8 @@ class _CompareScreenState extends State<CompareScreen> {
                 child: Container(
                   width: double.infinity, // Adjust as needed
                   height: 200, // Adjust as needed
-                  color: isSelected[index] ? Colors.purple : Colors.transparent,
                   child: Card(
+                    color: isSelected[index] ? Colors.purple : Colors.transparent,
                     child: Column(
                       children: [
                         Expanded(
@@ -62,7 +71,7 @@ class _CompareScreenState extends State<CompareScreen> {
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: NetworkImage(
-                                  "https://asset.brandfetch.io/id6O2oGzv-/idNEgS9h8q.jpeg",
+                                  company.logoUrl,
                                 ),
                                 fit: BoxFit.contain, // Adjust as needed
                               ),
@@ -71,7 +80,7 @@ class _CompareScreenState extends State<CompareScreen> {
                         ),
                         const SizedBox(height: 10),
                         Text(
-                          "Google",
+                          company.name,
                           style: TextStyle(fontSize: 16), // Adjust as needed
                         ),
                       ],
@@ -85,24 +94,30 @@ class _CompareScreenState extends State<CompareScreen> {
           if (selectedCount == 2)
             Align(
               alignment: Alignment.bottomRight,
-              child: ElevatedButton(
-                onPressed: () {
-                  // Navigate to CompareChartsScreen with selected indices
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CompareChartsScreen(selectedIndices),
-                    ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20), // Adjust padding as needed
-                  backgroundColor: Theme.of(context).colorScheme.onTertiary, // Use onPrimary color from the theme
-
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 16, right: 16),
+                // Adjust margin as needed
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Navigate to CompareChartsScreen with selected indices
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            CompareChartsScreen(selectedCompanies),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                    // Adjust padding as needed
+                    backgroundColor: Theme.of(context)
+                        .colorScheme
+                        .onTertiary, // Use onPrimary color from the theme
+                  ),
+                  child: Text("Compare",
+                      style: TextStyle(fontSize: 20, color: Colors.white)),
                 ),
-                child: Text(
-                    "Compare",
-                    style: TextStyle(fontSize: 20, color: Colors.white)),
               ),
             ),
         ],
