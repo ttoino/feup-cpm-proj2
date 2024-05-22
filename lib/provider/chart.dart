@@ -34,7 +34,7 @@ Future<ChartData> chartData(
   final interval = switch (state.interval) {
     ChartInterval.day => '1min',
     ChartInterval.week => '15min',
-    ChartInterval.month => '60min',
+    ChartInterval.month => '1h',
     _ => '1day',
   };
 
