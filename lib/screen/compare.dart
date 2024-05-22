@@ -50,7 +50,7 @@ class _CompareScreenState extends ConsumerState<CompareScreen> {
                       } else {
                         // Show SnackBar indicating maximum selection reached
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             content:
                                 Text("Can't compare more than two companies"),
                           ),
@@ -63,17 +63,24 @@ class _CompareScreenState extends ConsumerState<CompareScreen> {
                   width: double.infinity, // Adjust as needed
                   height: 200, // Adjust as needed
                   child: Card(
-                    color: isSelected[index] ? Colors.purple : Colors.transparent,
+                    color: isSelected[index] ? Theme.of(context).colorScheme.onTertiary : Colors.transparent,
                     child: Column(
                       children: [
                         Expanded(
                           child: Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                  company.logoUrl,
+                            alignment: Alignment.center,
+                            child: FractionallySizedBox(
+                              widthFactor: 0.7, // Scale down the width to 70%
+                              heightFactor: 0.7, // Scale down the height to 70%
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: NetworkImage(
+                                      company.logoUrl,
+                                    ),
+                                    fit: BoxFit.contain,
+                                  ),
                                 ),
-                                fit: BoxFit.contain, // Adjust as needed
                               ),
                             ),
                           ),
@@ -81,7 +88,9 @@ class _CompareScreenState extends ConsumerState<CompareScreen> {
                         const SizedBox(height: 10),
                         Text(
                           company.name,
-                          style: TextStyle(fontSize: 16), // Adjust as needed
+                          style: TextStyle(fontSize: 16),
+                          maxLines: 1, // Limit the text to 1 line
+                          overflow: TextOverflow.ellipsis, // Use ellipsis to indicate overflow
                         ),
                       ],
                     ),
@@ -115,7 +124,7 @@ class _CompareScreenState extends ConsumerState<CompareScreen> {
                         .colorScheme
                         .onTertiary, // Use onPrimary color from the theme
                   ),
-                  child: Text("Compare",
+                  child: const Text("Compare",
                       style: TextStyle(fontSize: 20, color: Colors.white)),
                 ),
               ),
