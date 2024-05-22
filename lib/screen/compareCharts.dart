@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:meerkat/model/company.dart';
 
 class CompareChartsScreen extends StatelessWidget {
-  final List<int> selectedIndices;
+  final List<Company> selectedIndices;
 
   CompareChartsScreen(this.selectedIndices);
 
