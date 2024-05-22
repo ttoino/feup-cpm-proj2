@@ -1,5 +1,6 @@
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/material.dart';
+import 'package:meerkat/model/company.dart';
 import 'package:meerkat/widget/chart.dart';
 import 'package:meerkat/widget/chart_interval_button.dart';
 import 'package:meerkat/widget/chart_type_button.dart';
@@ -7,15 +8,15 @@ import 'package:meerkat/widget/news_list.dart';
 import 'package:meerkat/widget/quote.dart';
 
 class ChartScreen extends StatelessWidget {
-  final String symbol;
+  final Company company;
 
-  const ChartScreen(this.symbol, {super.key});
+  const ChartScreen(this.company, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(symbol),
+        title: Text(company.name),
         actions: const [ChartTypeButton(), ChartIntervalButton()],
       ),
       body: CustomScrollView(
@@ -27,7 +28,7 @@ class ChartScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(16),
                 child: SizedBox(
                   height: 1000,
-                  child: ConsumerChart(symbol),
+                  child: ConsumerChart([company].lock),
                 ),
               ),
             ]),
@@ -35,7 +36,7 @@ class ChartScreen extends StatelessWidget {
           SliverList.list(children: [
             Padding(
               padding: const EdgeInsets.all(16),
-              child: QuoteInfo(symbol),
+              child: QuoteInfo(company.ticker),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -45,7 +46,7 @@ class ChartScreen extends StatelessWidget {
               ),
             ),
             RecommendedNewsList(
-              tickers: [symbol].lock,
+              tickers: [company.ticker].lock,
               limit: 3,
             )
           ]),

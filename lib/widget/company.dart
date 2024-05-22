@@ -30,7 +30,7 @@ class CompanyItem extends StatelessWidget {
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => ChartScreen(company.ticker),
+          builder: (context) => ChartScreen(company),
         ),
       ),
     );

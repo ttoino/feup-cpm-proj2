@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meerkat/model/company.dart';
-import 'package:meerkat/screen/compareCharts.dart';
 import 'package:meerkat/provider/company.dart';
+import 'package:meerkat/screen/compare_chart.dart';
 
 class CompareScreen extends ConsumerStatefulWidget {
   const CompareScreen({Key? key}) : super(key: key);
@@ -63,7 +63,9 @@ class _CompareScreenState extends ConsumerState<CompareScreen> {
                   width: double.infinity, // Adjust as needed
                   height: 200, // Adjust as needed
                   child: Card(
-                    color: isSelected[index] ? Theme.of(context).colorScheme.onTertiary : Colors.transparent,
+                    color: isSelected[index]
+                        ? Theme.of(context).colorScheme.onTertiary
+                        : Colors.transparent,
                     child: Column(
                       children: [
                         Expanded(
@@ -90,7 +92,8 @@ class _CompareScreenState extends ConsumerState<CompareScreen> {
                           company.name,
                           style: TextStyle(fontSize: 16),
                           maxLines: 1, // Limit the text to 1 line
-                          overflow: TextOverflow.ellipsis, // Use ellipsis to indicate overflow
+                          overflow: TextOverflow
+                              .ellipsis, // Use ellipsis to indicate overflow
                         ),
                       ],
                     ),
