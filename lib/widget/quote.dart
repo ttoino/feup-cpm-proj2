@@ -81,9 +81,7 @@ class _Row extends StatelessWidget {
 
   const _Row(
     this.title,
-    this.value, {
-    super.key,
-  });
+    this.value);
 
   @override
   Widget build(BuildContext context) {

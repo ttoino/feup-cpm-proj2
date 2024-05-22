@@ -5,13 +5,13 @@ import 'package:meerkat/provider/company.dart';
 import 'package:meerkat/screen/compare_chart.dart';
 
 class CompareScreen extends ConsumerStatefulWidget {
-  const CompareScreen({Key? key}) : super(key: key);
+  const CompareScreen({super.key});
 
   @override
-  _CompareScreenState createState() => _CompareScreenState();
+  CompareScreenState createState() => CompareScreenState();
 }
 
-class _CompareScreenState extends ConsumerState<CompareScreen> {
+class CompareScreenState extends ConsumerState<CompareScreen> {
   List<bool> isSelected = List.filled(10, false);
   int selectedCount = 0;
   List<Company> selectedCompanies = [];
@@ -59,7 +59,7 @@ class _CompareScreenState extends ConsumerState<CompareScreen> {
                     }
                   });
                 },
-                child: Container(
+                child: SizedBox(
                   width: double.infinity, // Adjust as needed
                   height: 200, // Adjust as needed
                   child: Card(
@@ -90,7 +90,7 @@ class _CompareScreenState extends ConsumerState<CompareScreen> {
                         const SizedBox(height: 10),
                         Text(
                           company.name,
-                          style: TextStyle(fontSize: 16),
+                          style: const TextStyle(fontSize: 16),
                           maxLines: 1, // Limit the text to 1 line
                           overflow: TextOverflow
                               .ellipsis, // Use ellipsis to indicate overflow
@@ -121,7 +121,8 @@ class _CompareScreenState extends ConsumerState<CompareScreen> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 20),
                     // Adjust padding as needed
                     backgroundColor: Theme.of(context)
                         .colorScheme
