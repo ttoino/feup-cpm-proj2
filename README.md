@@ -109,12 +109,13 @@ This page contains 10 company stocks and some news. To visualize the stock of an
 Furthermore, users can choose if they want to see the information on a candle or mountain chart.
 This option can be found clicking the icon on the left side of the calendar,
 
-falar que se passar por cima do grafico aparecem valores????
+By hovering over the chart, users can see specific values for each data point, enhancing their ability to interpret the stock trends.
 
 <div align="center">
 
 <p align="center">
   <img src="assets-readme%2Fchange-chart.jpg" width="15%" />
+    <img src="assets-readme%2Fchange-chart-hover.jpg" width="15%" />
 </p>
 
 ###### Figure 5 - Change type of chart
