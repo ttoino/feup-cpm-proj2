@@ -14,10 +14,10 @@
 
 1. [Overview](#overview)
 2. [Development Process](#development-process)
-3. [App Architecture](#architecture)
+3. [App Architecture](#app-architecture)
 4. [Navigation Map](#navigation-map)
-5. [Implemented Features](#features)
-6. [Performed Scenarios Tests and How to use](#performed-scenarios-test-and-how-to-use)
+5. [Implemented Features](#implemented-features)
+6. [Performed Test Scenarios and How to Use](#performed-test-scenarios-and-how-to-use)
 
 ## Overview
 
@@ -150,7 +150,7 @@ For those who want to invest in the stock market it is very important to be awar
 
 </p>
 
-###### Figure 7 - Fron left to right: initial page, company page and news only page
+###### Figure 7 - From left to right: initial page, company page and news only page
 
 </div>
 
@@ -170,8 +170,38 @@ To do so, all one has to do is click the name of the intended company on the top
 
 </div>
 
-6. 
+6. Search for a Company
+
+The search functionality in Meerkat allows users to easily find and display information about specific companies listed in the app. This feature is designed to enhance user experience by providing quick access to stock data for a particular company without manually browsing through the list.
+
+<div align="center">
+
+<p align="center">
+  <img src="assets-readme%2Fsearch-page.jpg" width="15%" />
+</p>
+
+###### Figure 9 - Search page 
+
+</div>
+
+7. Compare Two Companies' Stocks
+
+The users can compare th stock performance of two companies. This is a key feature of Meerkat, enabling the users to analyze and contrast the stock trends of different companies over a specified period.
+
+<div align="center">
+
+<p align="center">
+  <img src="assets-readme%2Fcompare-companies-1.jpg" width="15%" />
+  <img src="assets-readme%2Fcompare-companies-2.jpg" width="15%" />
+</p>
+
+###### Figure 7 - Compare page before selecting companies to compare and after selecting
+
+</div>
+
 
 ## References
 
-referir APIs
+[Alpha Vantage API](https://www.alphavantage.co/): Used for fetching stock price data and news.
+
+[TwelveData API](https://twelvedata.com/): Used for historical and real-time stock data, providing a larger number of requests for seamless user experience.
