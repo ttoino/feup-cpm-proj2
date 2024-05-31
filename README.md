@@ -232,7 +232,7 @@ This is a key feature of Meerkat, enabling the users to analyze and contrast the
   <img src="assets-readme/compare-companies-chart.png" width="25%" />
 </p>
 
-###### Figure 7 - Compare page before selecting companies to compare and after selecting
+###### Figure 10 - Compare page before selecting companies to compare and after selecting
 
 </div>
 
