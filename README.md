@@ -96,11 +96,13 @@ The diagram below represents tha navigation map of our application. External pag
 
 ## Performed Test Scenarios and How to Use
 
-1. Visualization of the stocks of 10 companies
+### Visualization of the stocks of 10 companies
+
 When the user opens the app this is the first page that will show up.
+
 <div align="center">
 
-  <img src="assets-readme%2Finitial-page.jpg" width="15%"  />
+  <img src="assets-readme/home-page.png" width="15%"  />
 
 ###### Figure 3 - Initial Page
 
@@ -111,15 +113,15 @@ This page contains 10 company stocks and some news. To visualize the stock of an
 <div align="center">
 
 <p align="center">
-  <img src="assets-readme%2Fmountain-chart.jpg" width="15%"  />
-  <img src="assets-readme%2Fcompany-page-info.jpg" width="15%"  />
+  <img src="assets-readme/mountain-chart.png" width="15%"  />
+  <img src="assets-readme/company-info.png" width="15%"  />
 </p>
 
 ###### Figure 4 - Company Information Page
 
 </div>
 
-2. Visualization of the stocks of a company on a candle chart or on a mountain chart
+### Visualization of the stocks of a company on a candle chart or on a mountain chart
 
 Furthermore, users can choose if they want to see the information on a candle or mountain chart.
 This option can be found clicking the icon on the left side of the calendar,
@@ -129,29 +131,29 @@ By hovering over the chart, users can see specific values for each data point, e
 <div align="center">
 
 <p align="center">
-  <img src="assets-readme%2Fchange-chart.jpg" width="15%" />
-    <img src="assets-readme%2Fchange-chart-hover.jpg" width="15%" />
+  <img src="assets-readme/candle-chart.png" width="15%" />
+    <img src="assets-readme/mountain-chart-hover.png" width="15%" />
 </p>
 
 ###### Figure 5 - Change type of chart
 
 </div>
 
-3. Choose the date of the visualization
+### Choose the date of the visualization
 
 The interval of time of the evolution of the stock can be changed clicking the calendar icon on the top bar.
 
 <div align="center">
 
 <p align="center">
-  <img src="assets-readme%2Fchange-time.jpg" width="15%" />
+  <img src="assets-readme/mountain-chart-year.png" width="15%" />
 </p>
 
 ###### Figure 6 - Change time interval of chart
 
 </div>
 
-4. Check news related to market trends
+### Check news related to market trends
 
 News related to market trends can be found in three distinct pages: on the top of the initial page, on the bottom of the company page and a page dedicated to only news by clicking the newspaper icon on the initial page.
 
@@ -160,9 +162,9 @@ For those who want to invest in the stock market it is very important to be awar
 <div align="center">
 
 <p align="center">
-  <img src="assets-readme%2Finitial-page.jpg" width="15%" />
-  <img src="assets-readme%2Fcompany-page-info.jpg" width="15%" />
-  <img src="assets-readme%2Fnews-page.jpg" width="15%" />
+  <img src="assets-readme/home-page.png" width="15%" />
+  <img src="assets-readme/company-info.png" width="15%" />
+  <img src="assets-readme/news-page.png" width="15%" />
 
 </p>
 
@@ -170,7 +172,7 @@ For those who want to invest in the stock market it is very important to be awar
 
 </div>
 
-5. Filter news per company
+### Filter news per company
 
 To create a more user-friendly experience we allow users to filter news per company so they can see which news are related to the company they are interested in.
 
@@ -179,42 +181,44 @@ To do so, all one has to do is click the name of the intended company on the top
 <div align="center">
 
 <p align="center">
-  <img src="assets-readme%2Ffilter-news.jpg" width="15%" />
+  <img src="assets-readme/filter-news.png" width="15%" />
 </p>
 
 ###### Figure 8 - Filter news 
 
 </div>
 
-6. Search for a Company
+### Search for a Company
 
 The search functionality in Meerkat allows users to easily find and display information about specific companies listed in the app. This feature is designed to enhance user experience by providing quick access to stock data for a particular company without manually browsing through the list.
 
 <div align="center">
 
 <p align="center">
-  <img src="assets-readme%2Fsearch-page.jpg" width="15%" />
+  <img src="assets-readme/search-page.png" width="15%" />
+  <img src="assets-readme/search-page-results.png" width="15%" />
 </p>
 
 ###### Figure 9 - Search page 
 
 </div>
 
-7. Compare Two Companies' Stocks
+### Compare Two Companies' Stocks
 
-The users can compare th stock performance of two companies. This is a key feature of Meerkat, enabling the users to analyze and contrast the stock trends of different companies over a specified period.
+The users can compare the stock performance of two companies.
+This is a key feature of Meerkat, enabling the users to analyze and contrast the stock trends of different companies over a specified period.
 
 <div align="center">
 
 <p align="center">
-  <img src="assets-readme%2Fcompare-companies-1.jpg" width="15%" />
-  <img src="assets-readme%2Fcompare-companies-2.jpg" width="15%" />
+  <img src="assets-readme/compare-companies.png" width="15%" />
+  <img src="assets-readme/compare-companies-selected.png" width="15%" />
+  <img src="assets-readme/compare-companies-chart.png" width="15%" />
 </p>
 
 ###### Figure 7 - Compare page before selecting companies to compare and after selecting
 
 </div>
-
 
 ## References
 
