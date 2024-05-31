@@ -18,6 +18,7 @@
 4. [Libraries Used](#libraries-used)
 5. [Navigation Map](#navigation-map)
 6. [Performed Test Scenarios and How to Use](#performed-test-scenarios-and-how-to-use)
+7. [Before Running](#before-running)
 
 ## Overview
 
@@ -232,6 +233,29 @@ This is a key feature of Meerkat, enabling the users to analyze and contrast the
 ###### Figure 10 - Compare page before selecting companies to compare and after selecting
 
 </div>
+
+## Before Running
+
+Before running the app, you need to create a `.env` file in the root of the project with the following content:
+
+```env
+ALPHA_VANTAGE_KEY=<your_alpha_vantage_key>
+TWELVE_DATA_KEY=<your_twelve_data_key>
+```
+
+Then, you need to run the following command to run the code generation:
+
+```bash
+flutter pub get
+flutter pub run build_runner build
+```
+
+After that, you can run the app using the following command:
+
+```bash
+flutter pub get
+flutter run
+```
 
 ## References
 
