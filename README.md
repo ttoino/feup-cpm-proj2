@@ -17,8 +17,7 @@
 3. [App Architecture](#app-architecture)
 4. [Libraries Used](#libraries-used)
 5. [Navigation Map](#navigation-map)
-6. [Implemented Features](#implemented-features)
-7. [Performed Test Scenarios and How to Use](#performed-test-scenarios-and-how-to-use)
+6. [Performed Test Scenarios and How to Use](#performed-test-scenarios-and-how-to-use)
 
 ## Overview
 
@@ -107,8 +106,6 @@ The diagram below represents tha navigation map of our application. External pag
 ###### Figure 2 - Meerkat Navigation Map
 
 </div>
-
-## Implemented Features
 
 ## Performed Test Scenarios and How to Use
 
