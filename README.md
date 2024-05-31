@@ -53,6 +53,19 @@ Firstly, we started developing the essential features that were described on the
 ## App Architecture
 
 Our application is built on the Flutter framework, which serves as the core of our mobile app development.
+
+We used a very simple architecture, with the main components being:
+
+- **Providers**: Built using the Riverpod library, these manage the app's global state and cache the data fetched from the APIs.
+- **Models**: These represent the app's state and/or the data fetched from the APIs.
+- **API Clients**: These represent the APIs themselves, and are used to fetch data from the APIs.
+- **Widgets**: These are the app's UI components. As many of them as possible are stateless, to keep the app's state management simple and reduce potential bugs.
+- **Screens**: These are the app's pages, which are built using the widgets.
+- **Consumers**: These are the widgets that consume data from the providers, or change the app's state.
+
+The data flow is simple: the API clients fetch data from the APIs, which is then stored in the providers.
+Any consumers that need this data access it directly from the providers, and any changes to the app's state is immediately reflected in the UI.
+
 The app is integrated with two distinct APIs that serve important information indispensable for our app's functionalities:
 
 1. **[Alpha Vantage API](https://www.alphavantage.co/)**: This is the API recommended on the instructions of the project. We initially used only this service to gather all the information we wanted, but since the number of daily requests is very limited that affected our progress and would also make the app very restricted to users who could only use some of the functionalities only a few times per day.
@@ -105,7 +118,7 @@ When the user opens the app this is the first page that will show up.
 
 <div align="center">
 
-  <img src="assets-readme/home-page.png" width="15%"  />
+  <img src="assets-readme/home-page.png" width="25%"  />
 
 ###### Figure 3 - Initial Page
 
@@ -116,8 +129,8 @@ This page contains 10 company stocks and some news. To visualize the stock of an
 <div align="center">
 
 <p align="center">
-  <img src="assets-readme/mountain-chart.png" width="15%"  />
-  <img src="assets-readme/company-info.png" width="15%"  />
+  <img src="assets-readme/mountain-chart.png" width="25%"  />
+  <img src="assets-readme/company-info.png" width="25%"  />
 </p>
 
 ###### Figure 4 - Company Information Page
@@ -134,8 +147,8 @@ By hovering over the chart, users can see specific values for each data point, e
 <div align="center">
 
 <p align="center">
-  <img src="assets-readme/candle-chart.png" width="15%" />
-    <img src="assets-readme/mountain-chart-hover.png" width="15%" />
+  <img src="assets-readme/candle-chart.png" width="25%" />
+    <img src="assets-readme/mountain-chart-hover.png" width="25%" />
 </p>
 
 ###### Figure 5 - Change type of chart
@@ -149,7 +162,7 @@ The interval of time of the evolution of the stock can be changed clicking the c
 <div align="center">
 
 <p align="center">
-  <img src="assets-readme/mountain-chart-year.png" width="15%" />
+  <img src="assets-readme/mountain-chart-year.png" width="25%" />
 </p>
 
 ###### Figure 6 - Change time interval of chart
@@ -165,9 +178,9 @@ For those who want to invest in the stock market it is very important to be awar
 <div align="center">
 
 <p align="center">
-  <img src="assets-readme/home-page.png" width="15%" />
-  <img src="assets-readme/company-info.png" width="15%" />
-  <img src="assets-readme/news-page.png" width="15%" />
+  <img src="assets-readme/home-page.png" width="25%" />
+  <img src="assets-readme/company-info.png" width="25%" />
+  <img src="assets-readme/news-page.png" width="25%" />
 
 </p>
 
@@ -184,7 +197,7 @@ To do so, all one has to do is click the name of the intended company on the top
 <div align="center">
 
 <p align="center">
-  <img src="assets-readme/filter-news.png" width="15%" />
+  <img src="assets-readme/filter-news.png" width="25%" />
 </p>
 
 ###### Figure 8 - Filter news 
@@ -198,8 +211,8 @@ The search functionality in Meerkat allows users to easily find and display info
 <div align="center">
 
 <p align="center">
-  <img src="assets-readme/search-page.png" width="15%" />
-  <img src="assets-readme/search-page-results.png" width="15%" />
+  <img src="assets-readme/search-page.png" width="25%" />
+  <img src="assets-readme/search-page-results.png" width="25%" />
 </p>
 
 ###### Figure 9 - Search page 
@@ -214,9 +227,9 @@ This is a key feature of Meerkat, enabling the users to analyze and contrast the
 <div align="center">
 
 <p align="center">
-  <img src="assets-readme/compare-companies.png" width="15%" />
-  <img src="assets-readme/compare-companies-selected.png" width="15%" />
-  <img src="assets-readme/compare-companies-chart.png" width="15%" />
+  <img src="assets-readme/compare-companies.png" width="25%" />
+  <img src="assets-readme/compare-companies-selected.png" width="25%" />
+  <img src="assets-readme/compare-companies-chart.png" width="25%" />
 </p>
 
 ###### Figure 7 - Compare page before selecting companies to compare and after selecting
