@@ -15,9 +15,10 @@
 1. [Overview](#overview)
 2. [Development Process](#development-process)
 3. [App Architecture](#app-architecture)
-4. [Navigation Map](#navigation-map)
-5. [Implemented Features](#implemented-features)
-6. [Performed Test Scenarios and How to Use](#performed-test-scenarios-and-how-to-use)
+4. [Libraries Used](#libraries-used)
+5. [Navigation Map](#navigation-map)
+6. [Implemented Features](#implemented-features)
+7. [Performed Test Scenarios and How to Use](#performed-test-scenarios-and-how-to-use)
 
 ## Overview
 
@@ -48,7 +49,8 @@ Firstly, we started developing the essential features that were described on the
 
 ## App Architecture
 
-Our application is built on a Flutter framework, which serves as the core of our mobile app development. The app is integrated with two distinct APIs that serve important information indespensable for our app functionalities:
+Our application is built on the Flutter framework, which serves as the core of our mobile app development.
+The app is integrated with two distinct APIs that serve important information indispensable for our app's functionalities:
 
 1. **[Alpha Vantage API](https://www.alphavantage.co/)**: This is the API recommended on the instructions of the project. We initially used only this service to gather all the information we wanted, but since the number of daily requests is very limited that affected our progress and would also make the app very restricted to users who could only use some of the functionalities only a few times per day.
    Given this, we decided to search for a new API to use for actions that would require a greater number of request, but we still used Alpha Vantage to gather all of the news information.
@@ -64,6 +66,19 @@ The integration of these APIs ensures our Flutter app provides comprehensive mar
 ###### Figure 1 - Meerkat Architecture
 
 </div>
+
+## Libraries Used
+
+The following libraries were used when developing the app:
+
+- **Dio**: Used as an HTTP client for making requests to the APIs.
+- **Envied**: Used to load environment variables, like API keys.
+- **FL Chart**: Used to render the charts. We needed to use a custom fork, as the original package didn't have a feature we needed.
+- **Flutter Localizations/Intl**: Used to handle the app's localization.
+- **Freezed/Json Serializable**: Used to automatically generate serialization code for our models.
+- **Retrofit**: Used to generate a custom client for the APIs we used.
+- **Riverpod**: Used to manage the app's global state and to cache the data fetched from the APIs.
+- **Url Launcher**: Used to open the news articles in the browser.
 
 ## Navigation Map
 
