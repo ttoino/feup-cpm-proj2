@@ -23,6 +23,9 @@
 ## Overview
 
 Meerkat is a mobile app developed for a project regarding the Mobile Computing course.
+
+The name is a pun on the similarity between 'market' and 'meerkat,' with our icon being a friendly-looking meerkat.
+
 This application is thought to provide an accessible and informative way of analyzing and comparing the evolution on the stock market of different companies.
 
 Its main functionalities include:
@@ -224,4 +227,4 @@ This is a key feature of Meerkat, enabling the users to analyze and contrast the
 
 [Alpha Vantage API](https://www.alphavantage.co/): Used for fetching stock price data and news.
 
-[TwelveData API](https://twelvedata.com/): Used for historical and real-time stock data, providing a larger number of requests for seamless user experience.
+[TwelveData API](https://twelvedata.com/): Used for historical and real-time stock data, providing a larger number of requests for improved user experience.
